@@ -6,7 +6,6 @@ Created on Tue Mar 28 23:15:33 2023
 @author: https://github.com/Np5123/Face-Detection-Opencv/blob/master/face-recognition
 Modifyed By Michel Safars
 """
-
 import cv2
 
 # import the cascade for face and eye
@@ -25,9 +24,8 @@ def detect(gray, imgOrg):
             cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 0, 255), 2)
     return imgOrg
 
-
 # Read image
-img = cv2.imread("/Users/M/Documents/Dev Mike All/OpenCV Anaconda Python /COURS VIDEO/Face-Detection-Opencv (Michel)/Face-Detection-Opencv/Faces Images/Visage femme.jpg")
+img = cv2.imread("Faces Images/Visage femme.jpg")
 
 # Convert to grayscale
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -40,14 +38,15 @@ cv2.moveWindow("Original Image", 100, 100)
 
 cv2.imshow("Grayscale Image", gray_img)
 
-w_X = cv2.getWindowImageRect("Original Image")[0] # 0=X, 1=Y, 2=width, 3=heigth
+w_X = cv2.getWindowImageRect("Original Image")[0] # 0=X, 1=Y, 2=width, 3=height
 w_width = cv2.getWindowImageRect("Original Image")[2]
 
 cv2.moveWindow("Grayscale Image", w_X + w_width + 3, 100)
 
-cv2.setWindowProperty("Original Image", cv2.WND_PROP_TOPMOST, 1) # censé mettre l'iamge original devant car elle apparait derrière Spyder ?!
+cv2.setWindowProperty("Original Image", cv2.WND_PROP_TOPMOST, 1) # supposed to put the original image in front as it appears behind Spyder?!
 
 canvas = detect(gray_img, img)
+
 cv2.imshow("Image avec visages", canvas)
 
 cv2.waitKey(0)
