@@ -51,4 +51,5 @@ canvas = detect(gray_img, img)
 cv2.imshow("Image avec visages", canvas)
 
 cv2.waitKey(0)
+
 cv2.destroyAllWindows()
