@@ -38,9 +38,11 @@ cv2.moveWindow("Original Image", 100, 100)
 
 cv2.imshow("Grayscale Image", gray_img)
 
+#replaçons la fenêtre en haut de l'écran à gauche
 w_X = cv2.getWindowImageRect("Original Image")[0] # 0=X, 1=Y, 2=width, 3=height
 w_width = cv2.getWindowImageRect("Original Image")[2]
 
+# et l'autre à coté
 cv2.moveWindow("Grayscale Image", w_X + w_width + 3, 100)
 
 cv2.setWindowProperty("Original Image", cv2.WND_PROP_TOPMOST, 1) # supposed to put the original image in front as it appears behind Spyder?!
