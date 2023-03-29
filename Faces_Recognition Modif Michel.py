@@ -9,6 +9,7 @@ Created on Tue Mar 28 23:15:33 2023
 
 #import the library
 import cv2
+cv2.destroyAllWindows
 
 #import the cascade for face and eye
 face_cascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
@@ -29,23 +30,22 @@ def detect(gray,frame):
 
 
 # Read image
-img = cv2.imread('/Users/M/Documents/Dev Mike All/OpenCV Anaconda Python /COURS VIDEO/Face-Detection-Opencv/Face-Detection-Opencv/Faces Images/Image.jpg')
+img = cv2.imread('/Users/M/Documents/Dev Mike All/OpenCV Anaconda Python /COURS VIDEO/Face-Detection-Opencv (Michel)/Face-Detection-Opencv/Faces Images/Visage femme.jpg')
 
 # Convert to grayscale
-gray_img = img
-#gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Display image
-#cv2.imshow('Original Image', img)
-#cv2.imshow('Grayscale Image', gray_img)
+cv2.imshow('Original Image', img)
+cv2.imshow('Grayscale Image', gray_img)
 
 
- #gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-canvas = detect(gray_img, img)
+#canvas = detect(gray_img, img)
 
-cv2.imshow("Visages",img)
-while not(cv2.waitKey(1) & 0XFF==ord("q")):
-        break
+cv2.waitKey(0)
+
+#while not(cv2.waitKey(1) & 0XFF==ord("q")):
+ #       break
 #video.release()
 cv2.destroyAllWindows
                       
