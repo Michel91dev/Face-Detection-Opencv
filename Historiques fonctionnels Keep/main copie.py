@@ -12,7 +12,6 @@ import cv2
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 eye_cascade = cv2.CascadeClassifier("haarcascade_eye.xml")
 
-
 # create a function to detect the frame
 def detect(gray, imgOrg):
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
@@ -32,29 +31,25 @@ img = cv2.imread("Faces Images/Visage femme.jpg")
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Display image
-cv2.namedWindow("Original Image", cv2.WINDOW_NORMAL)  # flag to allow the window to be resizable.
+cv2.namedWindow("Original Image", cv2.WINDOW_NORMAL) # flag to allow the window to be resizable.
 cv2.imshow("Original Image", img)
 
 cv2.moveWindow("Original Image", 100, 100)
 
 cv2.imshow("Grayscale Image", gray_img)
 
-# replaçons la fenêtre en haut de l'écran à gauche
-w_X = cv2.getWindowImageRect("Original Image")[0]  # 0=X, 1=Y, 2=width, 3=height
+#replaçons la fenêtre en haut de l'écran à gauche
+w_X = cv2.getWindowImageRect("Original Image")[0] # 0=X, 1=Y, 2=width, 3=height
 w_width = cv2.getWindowImageRect("Original Image")[2]
 
 # et l'autre à coté
 cv2.moveWindow("Grayscale Image", w_X + w_width + 3, 100)
 
+cv2.setWindowProperty("Original Image", cv2.WND_PROP_TOPMOST, 1) # supposed to put the original image in front as it appears behind Spyder?!
+
 canvas = detect(gray_img, img)
 
 cv2.imshow("Image avec visages", canvas)
-
-# Move the "Image avec visages" window next to the "Grayscale Image" window
-gray_w_X = cv2.getWindowImageRect("Grayscale Image")[0]
-gray_w_width = cv2.getWindowImageRect("Grayscale Image")[2]
-
-cv2.moveWindow("Image avec visages", gray_w_X + gray_w_width + 3, 100)
 
 cv2.waitKey(0)
 
