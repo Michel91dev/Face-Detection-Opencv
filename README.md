@@ -45,3 +45,7 @@ The algorithm has four stages:
 Face detection has rich real-time applications that include facial recognition, emotions detection (smile detection), facial features detection (like eyes), face tracking etc. You can also explore more exciting machine learning and computer vision algorithms available in OpenCV library.
 
 You can download the complete code from this repo along Haar cascade training files.
+
+// ------- Michel Safars
+2023 0405 : Just a playgroung for me.
+
